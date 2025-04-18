@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Porfolio Website</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/dcfa2ca64e.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+    
+        <div class="container">
+            <nav>
+                <a href="#" class="navbar-brand"><span>A</span>ngelo.</a>
+                <ul id="sidemenu">
+                    <li><a href="eendex.html" target="_self">Home</a></li>
+                    <li><a href="#" >About</a></li>
+                    <li><a href="Services.html" target="_self">Services</a></li>
+                    <li><a href="Portfolio.html" target="_self">Porfolio</a></li>
+                    <li><a href="Contact.html" target="_self">Contact</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+        </div>
+    
+
+    <!-----------------About----------------->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="ahga.jpg" width="93%" height="480px">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am 2nd year Technology College Student in PUP-Parañaque.<br>
+                      Using empathy, curiosity and design to find simple and effective solutions to complex problems.</p>
+
+                      <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                      </div>
+                      <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>JAVA</span><br>Building POS/Database System</li>
+                            <div class="skill-bar" data-value="80" style="width: 80%;"></div>
+
+                            <li><span>HTML & CSS</span><br>Web Development</li>
+                            <div class="skill-bar" data-value="70" style="width: 70%;"></div>
+
+                            <li><span>PYTHON</span><br>Designing Web/App interfaces</li>
+                            <div class="skill-bar" data-value="60" style="width: 60%;"></div>
+                        </ul>
+                      </div>
+
+                      <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2023</span><br>Mini BootCamp seminar in PUP-Parañaque</li>
+                            <li><span>HTML & CSS</span><br>No Experience</li>
+                            <li><span>PYTHON</span><br>No Experience</li>
+                        </ul>
+                      </div>
+
+                      <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022-2023</span><br>Olivarez College Parañaque City.</li>
+                            <li><span>2023-2024</span><br>PUP-Parañaque City.</li>
+                        </ul>
+                      </div>
+
+                     
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+        </script>
+
+        <script>
+            var sidemeu = document.getElementById("sidemenu");
+            function openmenu(){
+                sidemeu.style.right = "0";
+            }
+            function closemenu(){
+                sidemeu.style.right = "-200px";
+            }
+        </script>
+
+<script>
+    document.getElementById("contact-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                document.getElementById("msg").textContent = "Message sent successfully";
+                document.getElementById("msg").style.color = "green";
+            } else {
+                document.getElementById("msg").textContent = "Failed to send message";
+                document.getElementById("msg").style.color = "red";
+            }
+        } catch (error) {
+            document.getElementById("msg").textContent = "An error occurred. Please try again.";
+            document.getElementById("msg").style.color = "red";
+        }
+    });
+        </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Porfolio Website</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/dcfa2ca64e.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="navbar-brand"><span>A</span>ngelo.</a>
+            <ul id="sidemenu">
+                <li><a href="eendex.html" target="_self">Home</a></li>
+                <li><a href="About.html" target="_self">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="Portfolio.html" target="_self">Porfolio</a></li>
+                <li><a href="Contact.html" target="_self">Contact</a></li>
+                <li><a href="logout.php">Logout</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+
+     <!---------------------services-------------------->
+     <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>I provide professional and responsive web design services tailored to your needs.
+                       From visually appealing layouts to user-friendly interfaces,
+                        I ensure your website stands out and delivers an exceptional user experience.
+                        Whether it's a personal blog, e-commerce site, or corporate platform, 
+                        I've got you covered.</p>
+                    <a href="https://6grzdko6f6raiobzz83g3w.on.drv.tw/www.angelo-portfolio/Blog.html" target="_blank">Learn more</a>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-crop-simple"></i>
+                    <h2>POS System</h2>
+                    <p>This Point of Sale (POS) system is designed to streamline business operations with features such as real-time order management, 
+                        and a user-friendly interface. Developed using Java and a graphical user interface (GUI), 
+                        it offers a robust solution for small to medium-sized businesses, 
+                        ensuring accurate and secure transactions. Explore the functionality and 
+                        code on GitHub to see how this system can enhance your business processes.</p>
+                        <a href="https://github.com/Gelo-25/JAVA-GUI_OrderingSystem" target="_blank">Learn more</a>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Database System</h2>
+                    <p>Database systems that ensure secure, efficient, and reliable data storage and retrieval. 
+                       Whether it's for small-scale applications or enterprise-level solutions, 
+                       this database systems are tailored to meet your business needs, enabling seamless 
+                       data organization and real-time access.</p><br>
+                    <p>Here are the list of following databases.</p>
+                        <a href="database.html" target="_blank">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+        var sidemeu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemeu.style.right = "0";
+        }
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+        }
+    </script>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            document.getElementById("msg").textContent = "Message sent successfully";
+            document.getElementById("msg").style.color = "green";
+        } else {
+            document.getElementById("msg").textContent = "Failed to send message";
+            document.getElementById("msg").style.color = "red";
+        }
+    } catch (error) {
+        document.getElementById("msg").textContent = "An error occurred. Please try again.";
+        document.getElementById("msg").style.color = "red";
+    }
+});
+    </script>
+</body>
+</html>

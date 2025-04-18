@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Types</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        .database-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .database-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .database-card i {
+            font-size: 50px;
+            color: #0078D7;
+            margin-bottom: 15px;
+        }
+        .database-card h2 {
+            margin: 10px 0;
+            font-size: 22px;
+            color: #222;
+        }
+        .database-card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #0078D7;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Types of Databases</h1>
+        <div class="database-list">
+            <div class="database-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>MySQL</h2>
+                <p>MySQL is a widely used open-source relational database system. It is ideal for structured data and supports large-scale applications. Frequently used in web development, MySQL is known for its reliability and speed.</p>
+                
+            </div>
+            <div class="database-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>Apache Derby</h2>
+                <p>Apache Derby is a lightweight, open-source relational database implemented entirely in Java. It is well-suited for Java-based applications, offering easy integration and an embeddable architecture.</p>
+                
+            </div>
+            <div class="database-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>Relational Databases</h2>
+                <p>Store data in tables with rows and columns. Examples include PostgreSQL and SQLite. Ideal for structured data and maintaining relationships.</p>
+                
+            </div>
+            <div class="database-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>NoSQL Databases</h2>
+                <p>Designed for unstructured or semi-structured data. Examples include MongoDB, Cassandra, and Redis. Suitable for real-time applications.</p>
+                
+            </div>
+            <div class="database-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>Graph Databases</h2>
+                <p>Focus on relationships between data points. Examples include Neo4j and Amazon Neptune. Ideal for social networks and recommendation systems.</p>
+                
+            </div>
+            <div class="database-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>Time-Series Databases</h2>
+                <p>Optimized for handling time-stamped data. Examples include InfluxDB and TimescaleDB. Best for IoT and real-time analytics.</p>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

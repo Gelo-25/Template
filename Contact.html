@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Porfolio Website</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/dcfa2ca64e.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="navbar-brand"><span>A</span>ngelo.</a>
+            <ul id="sidemenu">
+                <li><a href="eendex.html" target="_self">Home</a></li>
+                <li><a href="About.html" target="_self">About</a></li>
+                <li><a href="Services.html" target="_self">Services</a></li>
+                <li><a href="Portfolio.html" target="_self">Porfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="logout.php">Logout</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+
+     <!-----------contact------------------>
+     <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>angelohagos11@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>09279515058 / 09393201047</p>
+
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/angelo.hagos.25" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/angelohagos/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+                    </div>
+                    <a href="Resume202205140626.pdf" download class="btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form id="contact-form" action="https://formspree.io/f/xldrdvqw" method="POST">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+            <div class="copyright">
+                
+            </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+        var sidemeu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemeu.style.right = "0";
+        }
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+        }
+    </script>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            document.getElementById("msg").textContent = "Message sent successfully";
+            document.getElementById("msg").style.color = "green";
+        } else {
+            document.getElementById("msg").textContent = "Failed to send message";
+            document.getElementById("msg").style.color = "red";
+        }
+    } catch (error) {
+        document.getElementById("msg").textContent = "An error occurred. Please try again.";
+        document.getElementById("msg").style.color = "red";
+    }
+});
+    </script>
+    
+</body>
+</html>
